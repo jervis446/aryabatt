@@ -1,6 +1,8 @@
-"""Aryabatt - A Basic Math Learning Software """
-
+"""Aryabhatt - A Basic Math Learning Software """
+import os
 from Tkinter import*
+import tkMessageBox
+#import subprocess
 
 root=Tk()
 root.title("Aryabhatt-A Basic Math Learning Software")
@@ -12,22 +14,28 @@ Label(root,text="Aryabhatt-A Basic Math Learning Software",font=("Helvetica", 20
 
 #Label(root,text="enter a number").grid(column=0,row=0,column span=4)
 
-def insert(x):
+def ram():
+     root.destroy()
+     os.system('python login.py')
+     #subprocess.call("python quiz.py" )
+     
+     
+def quit():
+	'''
+	Function to confirm quit when the player presses Quit Button. If yes, Quit the application, If no, return to the game.
+	'''
+	choice = tkMessageBox.askyesno('Quit Application','Are you sure you wish to stop playing Aryabhatt! ?')
+	if choice == True:
+		root.destroy()
+	elif choice == False:
+		pass
+     
+
+   
     
-    e.insert(END,x)
-def clear():
-    e.delete(0,END)
-def result(x):
-    y=eval(e.get())
-    clear()
-    e.insert(END,y)
-def clearr():
-    value=e.get()
-    value=value[:-1]
-    e.delete(0,END)
-    e.insert(0,value)
+
     
-Button(root,text="ENTER",bd=5,fg="blue",command=lambda:insert('-')).grid(column=4,row=3)
+Button(root,text="ENTER",bd=5,fg="blue",command=ram).grid(column=4,row=3)
 
 Button(root,text="QUIT",bd=5,fg="red",command=quit).grid(column=4,row=4)
 #Button(root,text="/",bd=5,command=lambda:insert('/')).grid(column=3,row=4)
