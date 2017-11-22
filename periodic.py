@@ -1,6 +1,7 @@
 
 from Tkinter import *
 import Tkinter as tk
+import tkMessageBox
 
 #Creates and Initiates class 'App'
 class table(Tk):
